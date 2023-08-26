@@ -35,7 +35,8 @@ def get_user_agent():
     browsers = ['chrome', 'firefox']
     try:
         user_agent = requests.get(
-            "https://api.user-agent.io/?browser=" + random.choice(browsers) + "&os=" + random.choice(operating_systems))
+            f"https://api.user-agent.io/?browser={random.choice(browsers)}&os={random.choice(operating_systems)}"
+        )
         if user_agent.status_code == 200 and "Mozilla" in user_agent.text:
             return user_agent.text
         else:
